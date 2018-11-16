@@ -46,6 +46,15 @@ Browser("Advantage Shopping").Page("Acquista Sky: abbonati_2").WebRadioGroup("ch
 Browser("Advantage Shopping").Page("Acquista Sky: abbonati_3").WebButton("procedi").Click @@ hightlight id_;_Browser("Advantage Shopping").Page("Acquista Sky: abbonati 3").WebButton("procedi")_;_script infofile_;_ZIP::ssf36.xml_;_
 Browser("Advantage Shopping").Page("Acquista Sky: abbonati_3").Sync
 
+' Check error
+If Browser("Advantage Shopping").Page("This page can’t be displayed").WebElement("elementoPaginaNonCaricata").Exist(10) Then
+	
+	reporter.ReportEvent micFail, "Pagamento non apparso", "Dopo la selezione del pagamento, l'applicativo va in errore"
+	getErrorScreenshot "", "", "", ""
+	ExitTest
+	
+End If
+
 'Browser("Advantage Shopping").Page("Acquista Sky: abbonati").WebElement("WebElement_5").Click @@ hightlight id_;_Browser("Advantage Shopping").Page("Acquista Sky: abbonati").WebElement("WebElement 5")_;_script infofile_;_ZIP::ssf26.xml_;_
 'Browser("Advantage Shopping").Page("Acquista Sky: abbonati").WebRadioGroup("checkout-indirizzo").Select "VIALE SARCA,235 20126 MILANO MI" @@ hightlight id_;_Browser("Advantage Shopping").Page("Acquista Sky: abbonati").WebRadioGroup("checkout-indirizzo")_;_script infofile_;_ZIP::ssf27.xml_;_
 'Browser("Advantage Shopping").Page("Acquista Sky: abbonati").WebButton("procedi").Click @@ hightlight id_;_Browser("Advantage Shopping").Page("Acquista Sky: abbonati").WebButton("procedi")_;_script infofile_;_ZIP::ssf28.xml_;_
